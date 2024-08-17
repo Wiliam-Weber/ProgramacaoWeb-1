@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        /* Cores para os fieldsets */
+        fieldset {
+            border: 2px solid #000; 
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        /* Cores para o fieldset "Informações Pessoais" */
+        fieldset#info-pessoais {
+            border-color: #3498db; 
+            background-color: #ecf0f1; 
+        }
+
+        fieldset#info-pessoais legend {
+            color: #3498db; 
+        }
+
+        /* Cores para o fieldset "Data de Nascimento e Sexo" */
+        fieldset#data-sexo {
+            border-color: #2ecc71; 
+            background-color: #dff9fb; 
+        }
+
+        fieldset#data-sexo legend {
+            color: #2ecc71; 
+        }
+
+        /* Cores para o fieldset "Informações de Contato" */
+        fieldset#info-contato {
+            border-color: #e74c3c; 
+            background-color: #f9ebea; 
+        }
+
+        fieldset#info-contato legend {
+            color: #e74c3c;
+        }
+
+        /* Estilo para listas dentro dos fieldsets */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Estilo para os campos do formulário */
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="color"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        input[type="reset"] {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Formulário de Cadastro</h2>
+
+
+<form action="cadastro.php" method="POST">
+    
+    <fieldset id="info-pessoais">
+        <legend>Informações Pessoais</legend>
+        <ul>
+            <!-- Nome -->
+            <li>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required maxlength="100">
+            </li>
+
+            <!-- Sobrenome -->
+            <li>
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" name="sobrenome" required maxlength="100">
+            </li>
+
+            <!-- E-Mail -->
+            <li>
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset id="data-sexo">
+        <legend>Data de Nascimento e Sexo</legend>
+        <ul>
+            <!-- Data de Nascimento -->
+            <li>
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" min="1920-01-01" max="2024-01-01" required>
+            </li>
+
+            <!-- Sexo -->
+            <li>
+                <label>Sexo:</label>
+                <input type="radio" id="masculino" name="sexo" value="Masculino" required>
+                <label for="masculino">Masculino</label>
+                <input type="radio" id="feminino" name="sexo" value="Feminino">
+                <label for="feminino">Feminino</label>
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset id="info-contato">
+        <legend>Informações de Contato</legend>
+        <ul>
+            <!-- Endereço -->
+            <li>
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" maxlength="200">
+            </li>
+
+            <!-- CEP -->
+            <li>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" maxlength="10">
+            </li>
+
+            <!-- Cor favorita -->
+            <li>
+                <label for="cor_favorita">Cor favorita:</label>
+                <input type="color" id="cor_favorita" name="cor_favorita">
+            </li>
+
+            <!-- Estado (UF) -->
+            <li>
+                <label for="estado">Estado (UF):</label>
+                <select id="estado" name="estado">
+                    <option value="AC">Acre (AC)</option>
+                    <option value="AL">Alagoas (AL)</option>
+                    <option value="AP">Amapá (AP)</option>
+                    <option value="AM">Amazonas (AM)</option>
+                    <option value="BA">Bahia (BA)</option>
+                    <option value="CE">Ceará (CE)</option>
+                    <option value="DF">Distrito Federal (DF)</option>
+                    <option value="ES">Espírito Santo (ES)</option>
+                    <option value="GO">Goiás (GO)</option>
+                    <option value="MA">Maranhão (MA)</option>
+                    <option value="MT">Mato Grosso (MT)</option>
+                    <option value="MS">Mato Grosso do Sul (MS)</option>
+                    <option value="MG">Minas Gerais (MG)</option>
+                    <option value="PA">Pará (PA)</option>
+                    <option value="PB">Paraíba (PB)</option>
+                    <option value="PR">Paraná (PR)</option>
+                    <option value="PE">Pernambuco (PE)</option>
+                    <option value="PI">Piauí (PI)</option>
+                    <option value="RJ">Rio de Janeiro (RJ)</option>
+                    <option value="RN">Rio Grande do Norte (RN)</option>
+                    <option value="RS">Rio Grande do Sul (RS)</option>
+                    <option value="RO">Rondônia (RO)</option>
+                    <option value="RR">Roraima (RR)</option>
+                    <option value="SC">Santa Catarina (SC)</option>
+                    <option value="SP">São Paulo (SP)</option>
+                    <option value="SE">Sergipe (SE)</option>
+                    <option value="TO">Tocantins (TO)</option>
+                </select>
+            </li>
+        </ul>
+    </fieldset>
+
+    <!-- Botões de submit e reset -->
+    <input type="submit" value="Cadastrar">
+    <input type="reset" value="Limpar">
+</form>
+
+</body>
+</html>

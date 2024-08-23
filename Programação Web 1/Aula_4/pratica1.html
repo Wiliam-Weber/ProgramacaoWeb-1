@@ -3,172 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Cadastro</title>
+    <title>Cadastro de Pessoa</title>
     <style>
-        /* Cores para os fieldsets */
-        fieldset {
-            border: 2px solid #000; 
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        /* Cores para o fieldset "Informações Pessoais" */
-        fieldset#info-pessoais {
-            border-color: #3498db; 
-            background-color: #ecf0f1; 
-        }
-
-        fieldset#info-pessoais legend {
-            color: #3498db; 
-        }
-
-        /* Cores para o fieldset "Data de Nascimento e Sexo" */
-        fieldset#data-sexo {
-            border-color: #2ecc71; 
-            background-color: #dff9fb; 
-        }
-
-        fieldset#data-sexo legend {
-            color: #2ecc71; 
-        }
-
-        /* Cores para o fieldset "Informações de Contato" */
-        fieldset#info-contato {
-            border-color: #e74c3c; 
-            background-color: #f9ebea; 
-        }
-
-        fieldset#info-contato legend {
-            color: #e74c3c;
-        }
-
-        /* Estilo para listas dentro dos fieldsets */
-        ul {
-            list-style-type: none;
+        * {
+            margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        li {
-            margin-bottom: 10px;
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
         }
 
-        /* Estilo para os campos do formulário */
-        label {
-            display: block;
-            margin-bottom: 5px;
+        form {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 500px;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="date"],
-        input[type="color"],
-        select {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        fieldset {
+            border: 1px solid #ccc;
         }
 
-        input[type="radio"] {
-            margin-right: 5px;
+        legend {
+            padding: 0 10px;
         }
 
-        input[type="submit"],
-        input[type="reset"] {
-            background-color: #3498db;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 5px;
+        .form-group {
+            margin-bottom: 20px;
+            background-color: #7ab0f4; 
+            padding: 10px;
+            border-radius: 0; 
+            border: 1px solid #aaa; 
+        }
+
+        .form-group label {
+            margin-right: 10px;
+        }
+
+        .form-group input,
+        .form-group select {
+            margin-right: 10px;
+            border-radius: 0; 
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #ccc;
+            border: 1px solid #999;
+            border-radius: 0; 
             cursor: pointer;
-            border-radius: 4px;
+            margin-right: 10px;
         }
 
-        input[type="reset"] {
-            background-color: #e74c3c;
+        button:hover {
+            background-color: #999;
         }
     </style>
 </head>
 <body>
-
-<h2>Formulário de Cadastro</h2>
-
-
-<form action="cadastro.php" method="POST">
-    
-    <fieldset id="info-pessoais">
-        <legend>Informações Pessoais</legend>
-        <ul>
-            <!-- Nome -->
-            <li>
+    <form class="form-cadastro">
+        <fieldset>
+            <legend>Cadastro da Pessoa</legend>
+            <div class="form-group">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required maxlength="100">
-            </li>
-
-            <!-- Sobrenome -->
-            <li>
+                <input type="text" id="nome" name="nome">
                 <label for="sobrenome">Sobrenome:</label>
-                <input type="text" id="sobrenome" name="sobrenome" required maxlength="100">
-            </li>
+                <input type="text" id="sobrenome" name="sobrenome">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email">
+            </div>
 
-            <!-- E-Mail -->
-            <li>
-                <label for="email">E-Mail:</label>
-                <input type="email" id="email" name="email" required>
-            </li>
-        </ul>
-    </fieldset>
+            <div class="form-group">
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="text" id="nascimento" name="nascimento" placeholder="dd/mm/aaaa">
+            </div>
 
-    <fieldset id="data-sexo">
-        <legend>Data de Nascimento e Sexo</legend>
-        <ul>
-            <!-- Data de Nascimento -->
-            <li>
-                <label for="data_nascimento">Data de Nascimento:</label>
-                <input type="date" id="data_nascimento" name="data_nascimento" min="1920-01-01" max="2024-01-01" required>
-            </li>
-
-            <!-- Sexo -->
-            <li>
+            <div class="form-group">
                 <label>Sexo:</label>
-                <input type="radio" id="masculino" name="sexo" value="Masculino" required>
+                <input type="radio" id="masculino" name="sexo" value="masculino">
                 <label for="masculino">Masculino</label>
-                <input type="radio" id="feminino" name="sexo" value="Feminino">
+                <input type="radio" id="feminino" name="sexo" value="feminino">
                 <label for="feminino">Feminino</label>
-            </li>
-        </ul>
-    </fieldset>
+            </div>
 
-    <fieldset id="info-contato">
-        <legend>Informações de Contato</legend>
-        <ul>
-            <!-- Endereço -->
-            <li>
+            <div class="form-group">
                 <label for="endereco">Endereço:</label>
-                <input type="text" id="endereco" name="endereco" maxlength="200">
-            </li>
-
-            <!-- CEP -->
-            <li>
+                <input type="text" id="endereco" name="endereco">
                 <label for="cep">CEP:</label>
-                <input type="text" id="cep" name="cep" maxlength="10">
-            </li>
-
-            <!-- Cor favorita -->
-            <li>
-                <label for="cor_favorita">Cor favorita:</label>
-                <input type="color" id="cor_favorita" name="cor_favorita">
-            </li>
-
-            <!-- Estado (UF) -->
-            <li>
+                <input type="text" id="cep" name="cep">
                 <label for="estado">Estado (UF):</label>
                 <select id="estado" name="estado">
+                    <option value="" disabled selected>Selecione...</option>
                     <option value="AC">Acre (AC)</option>
                     <option value="AL">Alagoas (AL)</option>
                     <option value="AP">Amapá (AP)</option>
@@ -197,14 +129,13 @@
                     <option value="SE">Sergipe (SE)</option>
                     <option value="TO">Tocantins (TO)</option>
                 </select>
-            </li>
-        </ul>
-    </fieldset>
+            </div>
 
-    <!-- Botões de submit e reset -->
-    <input type="submit" value="Cadastrar">
-    <input type="reset" value="Limpar">
-</form>
-
+            <div class="form-button">
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
+            </div>
+        </fieldset>
+    </form>
 </body>
 </html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #e9ecef;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        fieldset {
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #495057;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="color"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: #ffffff;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+        }
+
+        input[type="reset"] {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Formulário de Cadastro</h2>
+
+    <form action="cadastro.php" method="POST">
+        
+        <fieldset>
+            <legend>Informações Pessoais</legend>
+            <ul>
+                <!-- Nome -->
+                <li>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required maxlength="100">
+                </li>
+
+                <!-- Sobrenome -->
+                <li>
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome" name="sobrenome" required maxlength="100">
+                </li>
+
+                <!-- E-Mail -->
+                <li>
+                    <label for="email">E-Mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </li>
+
+                <!-- Data de Nascimento -->
+                <li>
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" min="1920-01-01" max="2024-01-01" required>
+                </li>
+
+                <!-- Sexo -->
+                <li>
+                    <label>Sexo:</label>
+                    <input type="radio" id="masculino" name="sexo" value="Masculino" required>
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" id="feminino" name="sexo" value="Feminino">
+                    <label for="feminino">Feminino</label>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>Informações de Contato</legend>
+            <ul>
+                <!-- Endereço -->
+                <li>
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" maxlength="200">
+                </li>
+
+                <!-- CEP -->
+                <li>
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" maxlength="10">
+                </li>
+
+                <!-- Cor favorita -->
+                <li>
+                    <label for="cor_favorita">Cor favorita:</label>
+                    <input type="color" id="cor_favorita" name="cor_favorita">
+                </li>
+
+                <!-- Estado (UF) -->
+                <li>
+                    <label for="estado">Estado (UF):</label>
+                    <select id="estado" name="estado">
+                        <option value="AC">Acre (AC)</option>
+                        <option value="AL">Alagoas (AL)</option>
+                        <option value="AP">Amapá (AP)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="ES">Espírito Santo (ES)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="MA">Maranhão (MA)</option>
+                        <option value="MT">Mato Grosso (MT)</option>
+                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PA">Pará (PA)</option>
+                        <option value="PB">Paraíba (PB)</option>
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="PI">Piauí (PI)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="RN">Rio Grande do Norte (RN)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="RO">Rondônia (RO)</option>
+                        <option value="RR">Roraima (RR)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <option value="SE">Sergipe (SE)</option>
+                        <option value="TO">Tocantins (TO)</option>
+                    </select>
+                </li>
+            </ul>
+        </fieldset>
+        
+        <div class="button-container">
+            <input type="submit" value="Cadastrar">
+            <input type="reset" value="Limpar">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

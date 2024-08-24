@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        /* Cores para o resultado */
+        .positivo {
+            background-color: green;
+            color: white;
+        }
+
+        .negativo {
+            background-color: red;
+            color: white;
+        }
+
+        .neutro {
+            background-color: gray;
+            color: white;
+        }
+        </style>
+    </head>
+<body>
+    <div class="Calculadora">
+        <h1>Calculadora</h1>
+        <input type="number" id="numero1" placeholder="Digite o primeiro numero">
+        <input type="number" id="numero2" placeholder="Digite o segundo numero">
+
+        <select id="operacao">
+            <option value="soma">Somar (+)</option>
+            <option value="subtracao">Subtrair (-)</option>
+            <option value="divisao">Dividir (/)</option>
+            <option value="multiplicacao">Multiplicar </option>
+        </select>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <div id="resultado">Resultado</div> 
+    </div>
+
+    <script>
+        function calcular() {
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+            var operacao = document.getElementById("operacao").value;
+            var resultado = 0;
+
+            // Realiza a operação
+            if (operacao === "soma") {
+                resultado = numero1 + numero2;
+            } else if (operacao === "subtracao") {
+                resultado = numero1 - numero2;
+            } else if (operacao === "multiplicacao") {
+                resultado = numero1 * numero2;
+            } else if (operacao === "divisao") {
+                resultado = numero1 / numero2;
+            }
+
+            // Exibe o resultado e altera o estilo de acordo com o valor
+            var campoResultado = document.getElementById("resultado");
+            campoResultado.textContent = "Resultado: " + resultado;
+
+            if (resultado > 0) {
+                campoResultado.className = "positivo";
+            } else if (resultado < 0) {
+                campoResultado.className = "negativo";
+            } else {
+                campoResultado.className = "neutro";
+            }
+        }
+    </script>
+
+</body>
+</html>

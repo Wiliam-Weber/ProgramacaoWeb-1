@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas dos Alunos</title>
+</head>
+<body>
+
+<h2>Notas dos Alunos</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th rowspan="2">Aluno</th>
+            <th colspan="3">Semestre 1</th>
+            <th colspan="3">Semestre 2</th>
+            <th colspan="3">Semestre 3</th>
+        </tr>
+        <tr>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Nota 3</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Nota 3</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Nota 3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Aluno 1</td>
+            <td>7.5</td>
+            <td>8.0</td>
+            <td>6.5</td>
+            <td>8.5</td>
+            <td>9.0</td>
+            <td>7.0</td>
+            <td>7.8</td>
+            <td>8.1</td>
+            <td>7.5</td>
+        </tr>
+        <tr>
+            <td>Aluno 2</td>
+            <td>6.0</td>
+            <td>7.2</td>
+            <td>7.8</td>
+            <td>8.3</td>
+            <td>6.7</td>
+            <td>7.4</td>
+            <td>7.9</td>
+            <td>8.5</td>
+            <td>8.0</td>
+        </tr>
+    </tbody>
+</table>
+
+<button onclick="adicionarLinhaTotalizadora()">Adicionar Linha de Médias</button>
+<button onclick="adicionarColunaTotalizadora()">Adicionar Coluna de Médias</button>
+
+<script>
+    function adicionarLinhaTotalizadora() {
+        const tabela = document.querySelector('table');
+        const tbody = tabela.querySelector('tbody');
+        const novaLinha = document.createElement('tr');
+        const celulaTitulo = document.createElement('td');
+        celulaTitulo.textContent = 'Média';
+        novaLinha.appendChild(celulaTitulo);
+
+        for (let i = 1; i <= 9; i++) {
+            let soma = 0;
+            let contador = 0;
+            tbody.querySelectorAll('tr').forEach(linha => {
+                const celula = linha.children[i];
+                if (celula) {
+                    soma += parseFloat(celula.textContent);
+                    contador++;
+                }
+            });
+            const media = soma / contador;
+            const celulaMedia = document.createElement('td');
+            celulaMedia.textContent = media.toFixed(2);
+            novaLinha.appendChild(celulaMedia);
+        }
+
+        tbody.appendChild(novaLinha);
+    }
+
+    function adicionarColunaTotalizadora() {
+        const tabela = document.querySelector('table');
+        const linhas = tabela.querySelectorAll('tbody tr');
+        const cabecalho = tabela.querySelector('thead tr');
+
+        const novaCelulaCabecalho = document.createElement('th');
+        novaCelulaCabecalho.textContent = 'Média';
+        cabecalho.appendChild(novaCelulaCabecalho);
+
+        linhas.forEach(linha => {
+            let soma = 0;
+            let contador = 0;
+            for (let i = 1; i < linha.children.length; i++) {
+                soma += parseFloat(linha.children[i].textContent);
+                contador++;
+            }
+            const media = soma / contador;
+            const novaCelula = document.createElement('td');
+            novaCelula.textContent = media.toFixed(2);
+            linha.appendChild(novaCelula);
+        });
+    }
+</script>
+
+</body>
+</html>
